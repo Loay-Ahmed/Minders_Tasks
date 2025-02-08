@@ -1,9 +1,11 @@
 import 'car.dart';
 
 class SportsCar implements Car {
+  static int counter = 0;
   //Constructor
-  SportsCar(this._car_id, this._year, this._rental_price_per_day,
-      this.luxury_fee, this._availability);
+  SportsCar(this._year, this._rental_price_per_day, this.luxury_fee,
+      this._availability)
+      : _car_id = ++counter;
 
   //Fields
   int _car_id;
