@@ -22,10 +22,10 @@ class Invoice {
     this.total_amount = base_rental_cost + additional_fees;
   }
 
-  void generateInvoice() {
+  void generateInvoice() async {
     // creates a file containing the invoice data
     final file = File("Invoice_${invoice_id}.txt");
-    file.writeAsStringSync(displayInvoice());
+    await file.writeAsString(displayInvoice());
   }
 
   String displayInvoice() {
