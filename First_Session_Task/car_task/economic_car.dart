@@ -1,5 +1,3 @@
-import 'dart:web_audio';
-
 import 'car.dart';
 
 class EconomicCar implements Car {
@@ -8,7 +6,6 @@ class EconomicCar implements Car {
   EconomicCar(
     this._year,
     this._rental_price_per_day,
-    this._availability,
   )   : _car_id = ++counter,
         _additional_fees = 0;
 
@@ -16,7 +13,7 @@ class EconomicCar implements Car {
   int _car_id;
   int _year;
   int _rental_price_per_day;
-  bool _availability;
+  bool _availability = true;
   int _additional_fees;
 
   //Overrides

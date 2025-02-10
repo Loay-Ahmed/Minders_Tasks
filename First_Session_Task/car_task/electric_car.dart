@@ -3,15 +3,17 @@ import 'car.dart';
 class ElectricCar implements Car {
   static int counter = 0;
   //Constructor
-  ElectricCar(this._year, this._rental_price_per_day, this._charging_capacity,
-      this._availability)
-      : _car_id = ++counter;
+  ElectricCar(
+    this._year,
+    this._rental_price_per_day,
+    this._charging_capacity,
+  ) : _car_id = ++counter;
 
   //Fields
   int _car_id;
   int _year;
   int _rental_price_per_day;
-  bool _availability;
+  bool _availability = true;
   int _charging_capacity;
 
   //Overrides
