@@ -13,8 +13,13 @@ class Booking {
   int total_cost;
   final int penalty;
 
-  Booking(this.customer, this.car, this.start_date, this.end_date, this.penalty)
-      : booking_id = counter++,
+  Booking(
+    this.customer,
+    this.car,
+    this.start_date,
+    this.end_date,
+    this.penalty,
+  )   : booking_id = counter++,
         rental_duration = end_date.difference(start_date),
         total_cost = 0 {
     total_cost = calculateTotalCost();

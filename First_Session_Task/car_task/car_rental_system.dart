@@ -20,9 +20,8 @@ class CarRentalSystem {
 
   void createBooking(Customer customer, Car car, DateTime start_date,
       DateTime end_date, int penalty) {
-    Booking booking = Booking(customer, car, start_date, end_date, penalty);
-    bookings.add(booking);
-    customer.booking_history.add(booking);
+    customer.addBooking(car, start_date, end_date, penalty);
+    generateReport(customer, car);
   }
 
   void displayAvailableCars() {
@@ -31,17 +30,18 @@ class CarRentalSystem {
     }
   }
 
-  void generateReport() async {
+  void generateReport(Customer customer, Car car) async {
     final file = File("Report.txt");
+    String reportData = "User ${customer.name} has booked car ${car.car_id}\n";
+    await file.writeAsString(reportData);
+  }
 
-    for (Booking booking in bookings) {
-      if (booking.end_date.isBefore(DateTime.now())) {
-        final invoice = Invoice(
-            booking.booking_id, booking.customer, booking.car, booking.penalty);
-        invoice.generateInvoice();
-        await file.writeAsString(invoice.displayInvoice() + "\n",
-            mode: FileMode.append);
-      }
-    }
+  void returnCar(Car car) {
+    final bookedCar = bookings.where((book) => book.car == car).toList()[0];
+    final invoice = Invoice(
+        bookedCar.booking_id, bookedCar.customer, car, car.additional_fees);
+    bookedCar.customer.booking_history.remove(bookedCar);
+    invoice.generateInvoice();
+    car.availability = true;
   }
 }

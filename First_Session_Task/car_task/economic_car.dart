@@ -5,8 +5,11 @@ import 'car.dart';
 class EconomicCar implements Car {
   static int counter = 0;
   //Constructor
-  EconomicCar(this._year, this._rental_price_per_day, this._availability)
-      : _car_id = ++counter,
+  EconomicCar(
+    this._year,
+    this._rental_price_per_day,
+    this._availability,
+  )   : _car_id = ++counter,
         _additional_fees = 0;
 
   //Fields
