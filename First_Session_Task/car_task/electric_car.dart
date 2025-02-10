@@ -39,7 +39,7 @@ class ElectricCar implements Car {
 
   @override
   String displayCarDetails() {
-    return "Car ID: $car_id, Year: $year\nRental Price Per Day: $rental_price_per_day,Charging capacity: $_charging_capacity,\nAvailability: $availability";
+    return " Car ID: $car_id, Year: $year\n Rental Price Per Day: $rental_price_per_day, Charging capacity: $_charging_capacity\n Availability: $availability";
   }
 
   @override

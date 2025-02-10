@@ -45,6 +45,6 @@ class SportsCar implements Car {
 
   @override
   String displayCarDetails() {
-    return "Car ID: $car_id, Year: $year\nRental Price Per Day: $rental_price_per_day, Luxury fees: $_luxury_fee\nAvailability: $availability";
+    return " Car ID: $car_id, Year: $year\n Rental Price Per Day: $rental_price_per_day, Luxury fees: $_luxury_fee\n Availability: $availability";
   }
 }

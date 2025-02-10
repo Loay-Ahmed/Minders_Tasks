@@ -19,17 +19,25 @@ class Invoice {
         base_rental_cost = 0,
         total_amount = 0 {
     this.base_rental_cost = car.rental_price_per_day;
-    this.total_amount = base_rental_cost + additional_fees;
+    final booking = customer.booking_history
+        .where((element) => element.booking_id == booking_id)
+        .toList()[0];
+    final rental_duration = booking.rental_duration.inDays;
+    this.total_amount = (base_rental_cost * rental_duration) + additional_fees;
   }
 
-  void generateInvoice() async {
+  Future<void> generateInvoice() async {
     // creates a file containing the invoice data
     final file = File("Invoice_${invoice_id}.txt");
-    await file.writeAsString(displayInvoice());
+    try {
+      await file.writeAsString(displayInvoice());
+    } catch (Exception) {
+      print("Error writing to file");
+    }
   }
 
   String displayInvoice() {
     // returns the data of the invoice
-    return "Invoice ${invoice_id}\nCustomer: ${customer.displayCustomerInfo()}\nBooking: ${booking_id}\nCar: ${car.displayCarDetails()}\nBase Rental Cost: ${base_rental_cost}\nAdditional Fees: ${additional_fees}\nTotal Amount: ${total_amount}";
+    return "Invoice ${invoice_id}${Platform.lineTerminator}Customer:${Platform.lineTerminator}${customer.displayCustomerInfo()}${Platform.lineTerminator}Booking: ${booking_id}${Platform.lineTerminator}Car:${Platform.lineTerminator}${car.displayCarDetails()}${Platform.lineTerminator}Base Rental Cost: ${base_rental_cost}${Platform.lineTerminator}Additional Fees: ${additional_fees}${Platform.lineTerminator}Total Amount: ${total_amount}";
   }
 }

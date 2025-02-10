@@ -40,7 +40,7 @@ class EconomicCar implements Car {
 
   @override
   String displayCarDetails() {
-    return "Car ID: $car_id, Year: $year,\nRental Price Per Day: $rental_price_per_day, Availability: $availability";
+    return " Car ID: $car_id, Year: $year\n Rental Price Per Day: $rental_price_per_day, Availability: $availability";
   }
 
   @override

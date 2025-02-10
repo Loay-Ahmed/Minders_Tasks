@@ -20,7 +20,7 @@ class CarRentalSystem {
 
   void createBooking(Customer customer, Car car, DateTime start_date,
       DateTime end_date, int penalty) {
-    customer.addBooking(car, start_date, end_date, penalty);
+    bookings.add(customer.addBooking(car, start_date, end_date, penalty));
     generateReport(customer, car);
   }
 
@@ -30,10 +30,10 @@ class CarRentalSystem {
     }
   }
 
-  void generateReport(Customer customer, Car car) async {
+  void generateReport(Customer customer, Car car) {
     final file = File("Report.txt");
     String reportData = "User ${customer.name} has booked car ${car.car_id}\n";
-    await file.writeAsString(reportData);
+    file.writeAsStringSync(reportData, mode: FileMode.append);
   }
 
   void returnCar(Car car) {

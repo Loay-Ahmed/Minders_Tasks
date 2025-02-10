@@ -8,18 +8,18 @@ class Customer {
   final int phone_number;
   final String email;
   final String address;
-  final List<Booking> booking_history;
+  List<Booking> booking_history = [];
 
   Customer(
     this.name,
     this.phone_number,
     this.email,
     this.address,
-    this.booking_history,
+    // this.booking_history,
   ) : customer_id = counter++;
 
   // Add a booking to the booking history
-  void addBooking(
+  Booking addBooking(
     Car car,
     DateTime start_date,
     DateTime end_date,
@@ -27,9 +27,19 @@ class Customer {
   ) {
     booking_history.add(Booking(this, car, start_date, end_date, penalty));
     car.availability = false;
+    return booking_history.last;
+  }
+
+  // Display booking history
+  String displayBookingHistory() {
+    String bookings = "";
+    for (Booking booking in booking_history) {
+      bookings += "book id: " + booking.booking_id.toString() + ", ";
+    }
+    return "[${bookings.substring(0, bookings.length - 2)}]";
   }
 
   String displayCustomerInfo() {
-    return "Name: $name, ID: $customer_id\nEmail: $email, Phone number: $phone_number\n Address: $address\nHistory: ${booking_history}";
+    return " Name: $name, ID: $customer_id\n Email: $email, Phone number: $phone_number\n Address: $address\n History: ${displayBookingHistory()}";
   }
 }
