@@ -10,6 +10,8 @@ abstract class Car {
 
   bool get availability;
   set availability(bool availability);
+  int get additional_fees;
+  set additional_fees(int fees);
 
   String displayCarDetails();
   int calculateCost(int days);

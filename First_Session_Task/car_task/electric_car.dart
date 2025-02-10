@@ -3,7 +3,7 @@ import 'car.dart';
 class ElectricCar implements Car {
   static int counter = 0;
   //Constructor
-  ElectricCar(this._year, this._rental_price_per_day, this.charging_capacity,
+  ElectricCar(this._year, this._rental_price_per_day, this._charging_capacity,
       this._availability)
       : _car_id = ++counter;
 
@@ -12,7 +12,7 @@ class ElectricCar implements Car {
   int _year;
   int _rental_price_per_day;
   bool _availability;
-  int charging_capacity;
+  int _charging_capacity;
 
   //Overrides
   @override
@@ -31,10 +31,13 @@ class ElectricCar implements Car {
   @override
   bool get availability => _availability; //Getter
   set availability(bool availability) => _availability = availability; //Setter
+  @override
+  int get additional_fees => _charging_capacity; //Getter
+  set additional_fees(int fees) => _charging_capacity = fees; //Setter
 
   @override
   String displayCarDetails() {
-    return "Car ID: $car_id, Year: $year\nRental Price Per Day: $rental_price_per_day,Charging capacity: $charging_capacity,\nAvailability: $availability";
+    return "Car ID: $car_id, Year: $year\nRental Price Per Day: $rental_price_per_day,Charging capacity: $_charging_capacity,\nAvailability: $availability";
   }
 
   @override

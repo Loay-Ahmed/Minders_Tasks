@@ -3,7 +3,7 @@ import 'car.dart';
 class SportsCar implements Car {
   static int counter = 0;
   //Constructor
-  SportsCar(this._year, this._rental_price_per_day, this.luxury_fee,
+  SportsCar(this._year, this._rental_price_per_day, this._luxury_fee,
       this._availability)
       : _car_id = ++counter;
 
@@ -11,7 +11,7 @@ class SportsCar implements Car {
   int _car_id;
   int _year;
   int _rental_price_per_day;
-  int luxury_fee;
+  int _luxury_fee;
   bool _availability;
 
   //Overrides
@@ -33,12 +33,16 @@ class SportsCar implements Car {
   set availability(bool availability) => _availability = availability; //Setter
 
   @override
+  int get additional_fees => _luxury_fee; //Getter
+  set additional_fees(int fees) => _luxury_fee = fees; //Setter
+
+  @override
   int calculateCost(int days) {
-    return (rental_price_per_day + days) * luxury_fee;
+    return (rental_price_per_day + days) * _luxury_fee;
   }
 
   @override
   String displayCarDetails() {
-    return "Car ID: $car_id, Year: $year\nRental Price Per Day: $rental_price_per_day, Luxury fees: $luxury_fee\nAvailability: $availability";
+    return "Car ID: $car_id, Year: $year\nRental Price Per Day: $rental_price_per_day, Luxury fees: $_luxury_fee\nAvailability: $availability";
   }
 }

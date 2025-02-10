@@ -1,16 +1,20 @@
+import 'dart:web_audio';
+
 import 'car.dart';
 
 class EconomicCar implements Car {
   static int counter = 0;
   //Constructor
   EconomicCar(this._year, this._rental_price_per_day, this._availability)
-      : _car_id = ++counter;
+      : _car_id = ++counter,
+        _additional_fees = 0;
 
   //Fields
   int _car_id;
   int _year;
   int _rental_price_per_day;
   bool _availability;
+  int _additional_fees;
 
   //Overrides
   @override
@@ -29,6 +33,10 @@ class EconomicCar implements Car {
   @override
   bool get availability => _availability; //Getter
   set availability(bool availability) => _availability = availability; //Setter
+
+  @override
+  int get additional_fees => _additional_fees; //Getter
+  set additional_fees(int fees) => _additional_fees = fees; //Setter
 
   @override
   String displayCarDetails() {
