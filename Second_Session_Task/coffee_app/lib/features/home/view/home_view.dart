@@ -1,3 +1,4 @@
+import 'package:coffee_app/features/home/model/dummy_data.dart';
 import 'package:coffee_app/features/home/view/widgets/coffee_list.dart';
 import 'package:coffee_app/features/home/view/widgets/custom_coffee_card.dart';
 import 'package:coffee_app/features/home/view/widgets/custom_container.dart';
@@ -90,7 +91,8 @@ class HomeView extends StatelessWidget {
                     itemCount: 6,
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     itemBuilder: (context, index) {
-                      return CustomCoffeeCard();
+                      return CustomCoffeeCard(
+                          coffee: DummyData.dummyData[index]);
                     },
                   ),
                 ),

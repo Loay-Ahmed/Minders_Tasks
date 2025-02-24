@@ -1,10 +1,15 @@
+import 'package:coffee_app/core/colors.dart';
+import 'package:coffee_app/features/home/model/coffee.dart';
 import 'package:coffee_app/features/home/view/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 
 class CustomCoffeeCard extends StatelessWidget {
   const CustomCoffeeCard({
     super.key,
+    required this.coffee,
   });
+
+  final Coffee coffee;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +30,7 @@ class CustomCoffeeCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.asset(
-                  "assets/coffee_four.jpeg",
+                  coffee.image,
                   width: 200,
                   height: 150,
                   fit: BoxFit.cover,
@@ -35,7 +40,7 @@ class CustomCoffeeCard extends StatelessWidget {
                 width: 55,
                 padding: EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  color: Colors.white10,
+                  color: Colors.black38,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(20),
                     bottomLeft: Radius.circular(20),
@@ -51,10 +56,10 @@ class CustomCoffeeCard extends StatelessWidget {
                       size: 15,
                     ),
                     Text(
-                      "4.6",
+                      coffee.rating.toString(),
                       style: TextStyle(
                         fontSize: 10,
-                        color: Color(0xffe3e3e3),
+                        color: MyColors.white,
                       ),
                     ),
                   ],
@@ -64,11 +69,13 @@ class CustomCoffeeCard extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Text(
-            "Caffe Mocha",
+            coffee.name,
             style: TextStyle(fontSize: 16),
           ),
           Text(
-            "Deep Foam",
+            coffee.description,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               color: Color(0xffa3a3a3),
               fontSize: 10,
@@ -80,7 +87,7 @@ class CustomCoffeeCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "\$ 4.53",
+                "\$ ${coffee.price.toStringAsFixed(2)}",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w800,
