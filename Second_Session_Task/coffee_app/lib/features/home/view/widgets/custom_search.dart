@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coffee_app/core/colors.dart';
 
 class CustomSearch extends StatelessWidget {
   const CustomSearch({super.key});
@@ -12,7 +13,7 @@ class CustomSearch extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         gradient: LinearGradient(
           colors: [
-            Color(0xff333333),
+            MyColors.black,
             Color(0xff393939),
           ],
           begin: Alignment.bottomLeft,
@@ -22,7 +23,7 @@ class CustomSearch extends StatelessWidget {
       child: TextFormField(
         cursorColor: Color(0xffa3a3a3),
         style: TextStyle(
-          color: Color(0xffe3e3e3),
+          color: MyColors.white,
         ),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(

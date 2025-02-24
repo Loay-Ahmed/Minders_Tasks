@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coffee_app/core/colors.dart';
 
 class CustomContainer extends StatelessWidget {
   const CustomContainer({super.key, this.child, this.width, this.height});
@@ -11,7 +12,7 @@ class CustomContainer extends StatelessWidget {
       width: width ?? 50,
       height: height ?? 50,
       decoration: BoxDecoration(
-        color: Color(0xffc67c4e),
+        color: MyColors.orange,
         borderRadius: BorderRadius.circular(10),
       ),
       child: child,

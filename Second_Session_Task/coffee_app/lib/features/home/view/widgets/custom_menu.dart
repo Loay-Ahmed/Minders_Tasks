@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:coffee_app/core/colors.dart';
 
 class CustomMenu extends StatelessWidget {
   CustomMenu({
@@ -17,10 +18,9 @@ class CustomMenu extends StatelessWidget {
     return DropdownMenu(
       initialSelection: 0,
       textStyle: TextStyle(
-        color: Color(0xffe3e3e3),
+        color: MyColors.white,
         fontSize: 15,
       ),
-      width: 220,
       label: Text(
         "Location",
         style: TextStyle(

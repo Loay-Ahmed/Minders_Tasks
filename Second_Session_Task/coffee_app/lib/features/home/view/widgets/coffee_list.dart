@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:coffee_app/core/colors.dart';
 
 class CustomCoffeeList extends StatefulWidget {
   const CustomCoffeeList({super.key});
@@ -47,18 +48,18 @@ class _CustomListSCoffeeState extends State<CustomCoffeeList> {
                 decoration: BoxDecoration(
                   color: index != selectedIndex
                       ? Colors.transparent
-                      : Color(0xffc67c4e),
+                      : MyColors.orange,
                   borderRadius: BorderRadius.circular(5),
                 ),
                 child: Text(
                   types[index],
-                  style: TextStyle(
+                  style: GoogleFonts.sora(
                     height: 1.5,
                     color: index == selectedIndex
-                        ? Color(0xfff3f3f3)
-                        : Color(0xff313131),
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
+                        ? MyColors.white
+                        : MyColors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),

@@ -2,18 +2,13 @@ import 'package:coffee_app/features/home/view/widgets/coffee_list.dart';
 import 'package:coffee_app/features/home/view/widgets/custom_coffee_card.dart';
 import 'package:coffee_app/features/home/view/widgets/custom_container.dart';
 import 'package:coffee_app/features/home/view/widgets/custom_menu.dart';
+import 'package:coffee_app/features/home/view/widgets/custom_nav_bar.dart';
 import 'package:coffee_app/features/home/view/widgets/custom_search.dart';
 import 'package:flutter/material.dart';
+import 'package:coffee_app/core/colors.dart';
 
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
-
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +22,7 @@ class _HomeViewState extends State<HomeView> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(0xff313131),
+                    color: MyColors.black,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -100,153 +95,7 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ),
                 SizedBox(height: 2),
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 10, right: 10, bottom: 15),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  selectedIndex = 0;
-                                });
-                              },
-                              padding: EdgeInsets.zero,
-                              alignment: Alignment.bottomCenter,
-                              icon: Icon(
-                                selectedIndex == 0
-                                    ? Icons.home_rounded
-                                    : Icons.home_outlined,
-                                size: 30,
-                                color: selectedIndex == 0
-                                    ? Color(0xffc67c4e)
-                                    : Color(0xffe3e3e3),
-                              ),
-                            ),
-                            if (selectedIndex == 0)
-                              Container(
-                                width: 10,
-                                height: 5,
-                                decoration: BoxDecoration(
-                                  color: Color(0xffc67c4e),
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                              ),
-                          ],
-                        ),
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  selectedIndex = 1;
-                                });
-                              },
-                              padding: EdgeInsets.zero,
-                              alignment: Alignment.bottomCenter,
-                              icon: Icon(
-                                selectedIndex == 1
-                                    ? Icons.favorite_rounded
-                                    : Icons.favorite_border_rounded,
-                                size: 30,
-                                color: selectedIndex == 1
-                                    ? Color(0xffc67c4e)
-                                    : Color(0xffe3e3e3),
-                              ),
-                            ),
-                            if (selectedIndex == 1)
-                              Container(
-                                width: 10,
-                                height: 5,
-                                decoration: BoxDecoration(
-                                  color: Color(0xffc67c4e),
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                              ),
-                          ],
-                        ),
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  selectedIndex = 2;
-                                });
-                              },
-                              padding: EdgeInsets.zero,
-                              alignment: Alignment.bottomCenter,
-                              icon: Icon(
-                                selectedIndex == 2
-                                    ? Icons.shopping_bag
-                                    : Icons.shopping_bag_outlined,
-                                size: 30,
-                                color: selectedIndex == 2
-                                    ? Color(0xffc67c4e)
-                                    : Color(0xffe3e3e3),
-                              ),
-                            ),
-                            if (selectedIndex == 2)
-                              Container(
-                                width: 10,
-                                height: 5,
-                                decoration: BoxDecoration(
-                                  color: Color(0xffc67c4e),
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                              ),
-                          ],
-                        ),
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  selectedIndex = 3;
-                                });
-                              },
-                              padding: EdgeInsets.zero,
-                              alignment: Alignment.bottomCenter,
-                              icon: Icon(
-                                selectedIndex == 3
-                                    ? Icons.notifications
-                                    : Icons.notifications_none_outlined,
-                                size: 30,
-                                color: selectedIndex == 3
-                                    ? Color(0xffc67c4e)
-                                    : Color(0xffe3e3e3),
-                              ),
-                            ),
-                            if (selectedIndex == 3)
-                              Container(
-                                width: 10,
-                                height: 5,
-                                decoration: BoxDecoration(
-                                  color: Color(0xffc67c4e),
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                              ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                CustomNavBar(),
               ],
             ),
             Positioned(
