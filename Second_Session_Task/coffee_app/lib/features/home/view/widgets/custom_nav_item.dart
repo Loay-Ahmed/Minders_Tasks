@@ -24,6 +24,7 @@ class CustomNavItem extends StatelessWidget {
           onPressed: () => onTap(index),
           padding: EdgeInsets.zero,
           alignment: Alignment.bottomCenter,
+          highlightColor: Colors.transparent,
           icon: Icon(
             index == selectedIndex ? selectedIcon : unSelectedIcon,
             size: 30,

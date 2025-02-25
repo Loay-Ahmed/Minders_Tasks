@@ -1,7 +1,7 @@
 import 'package:coffee_app/features/home/model/dummy_data.dart';
 import 'package:coffee_app/features/home/view/widgets/coffee_list.dart';
 import 'package:coffee_app/features/home/view/widgets/custom_coffee_card.dart';
-import 'package:coffee_app/features/home/view/widgets/custom_container.dart';
+import 'package:coffee_app/core/widgets/custom_container.dart';
 import 'package:coffee_app/features/home/view/widgets/custom_menu.dart';
 import 'package:coffee_app/features/home/view/widgets/custom_nav_bar.dart';
 import 'package:coffee_app/features/home/view/widgets/custom_search.dart';

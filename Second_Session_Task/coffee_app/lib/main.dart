@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.soraTextTheme(
           Theme.of(context).textTheme,
         ),  
+
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
