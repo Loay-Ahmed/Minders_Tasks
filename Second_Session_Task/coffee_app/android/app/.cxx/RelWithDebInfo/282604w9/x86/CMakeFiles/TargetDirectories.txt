@@ -1,0 +1,2 @@
+D:/data/Minders_Tasks/Second_Session_Task/coffee_app/android/app/.cxx/RelWithDebInfo/282604w9/x86/CMakeFiles/edit_cache.dir
+D:/data/Minders_Tasks/Second_Session_Task/coffee_app/android/app/.cxx/RelWithDebInfo/282604w9/x86/CMakeFiles/rebuild_cache.dir
