@@ -1,5 +1,5 @@
+import 'package:coffee_app/features/get_started/view/get_started_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:coffee_app/features/home/view/home_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: HomeView(),
+      home: GetStartedScreen(),
     );
   }
 }

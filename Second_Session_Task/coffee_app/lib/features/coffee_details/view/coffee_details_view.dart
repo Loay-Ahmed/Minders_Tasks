@@ -1,4 +1,5 @@
 import 'package:coffee_app/core/colors.dart';
+import 'package:coffee_app/core/widgets/custom_elevated_button.dart';
 import 'package:coffee_app/features/coffee_details/widgets/custom_appbar.dart';
 import 'package:coffee_app/features/coffee_details/widgets/custom_readmore_text.dart';
 import 'package:coffee_app/features/coffee_details/widgets/custom_toggle_button.dart';
@@ -189,16 +190,9 @@ class CoffeeDetailsView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: MyColors.orange,
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      minimumSize: Size(230, 55),
-                    ),
+                  CustomElevatedButton(
+                    color: MyColors.orange,
+                    minimumSize: Size(230, 55),
                     child: Text(
                       "Buy Now",
                       style: TextStyle(
