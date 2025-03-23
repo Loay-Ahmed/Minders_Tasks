@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quran_app/features/onboarding/onboarding.dart';
 import 'package:quran_app/core/widgets/app_bar_widget.dart';
 import 'package:quran_app/core/widgets/bottom_navigation_widget.dart';
@@ -6,7 +7,8 @@ import 'package:quran_app/core/widgets/drawer_widget.dart';
 import 'package:quran_app/core/widgets/tab_view_widget.dart';
 
 void main() {
-  runApp(const QuranApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const ProviderScope(child:  QuranApp()));
 }
 
 class QuranApp extends StatelessWidget {

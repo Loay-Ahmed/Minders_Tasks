@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quran_app/features/home/model/surah.dart';
 import 'package:quran_app/features/home/view_model/home_view_model.dart';
 
+import '../../home_page.dart';
+import '../../surah_selection/view/surah_list_screen.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -79,7 +82,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20.0),
                 child: ElevatedButton(
-                  onPressed: () => _viewModel.navigateToRecitation(context),
+                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SurahListScreen())),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 40,
@@ -132,7 +135,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
                     itemBuilder: (context, index) {
                       final Surah item = _viewModel.recentlyPlayed[index];
                       return GestureDetector(
-                        onTap: () => _viewModel.navigateToRecitation(context),
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage())),
                         child: AnimatedContainer(
                           duration: const Duration(milliseconds: 200),
                           decoration: BoxDecoration(
